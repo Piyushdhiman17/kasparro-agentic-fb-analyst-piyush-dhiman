@@ -133,3 +133,8 @@ Execution logs are saved to `logs/` as JSON files:
 - Python >= 3.9
 - Ollama with qwen3:4b model
 - Dependencies in requirements.txt (pandas, numpy, scipy, pyyaml, requests)
+
+## self-review
+self review branch
+
+
