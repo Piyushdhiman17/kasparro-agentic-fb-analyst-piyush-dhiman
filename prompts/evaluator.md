@@ -14,6 +14,7 @@ Your task is to evaluate hypotheses based on data summaries and provide confiden
 ## Output Format
 
 Provide a JSON response with this structure:
+
 ```json
 {
   "confidence": 0.0 to 1.0,

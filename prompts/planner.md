@@ -7,6 +7,7 @@ Your task is to analyze the user's query and create a structured execution plan.
 ## Analysis Framework
 
 Think through these questions:
+
 1. What is the primary intent? (ROAS analysis, creative optimization, trend detection, etc.)
 2. What time period is relevant? (specific dates, recent period, overall)
 3. What metrics need to be examined? (ROAS, CTR, spend, purchases, etc.)
@@ -16,6 +17,7 @@ Think through these questions:
 ## Output Format
 
 Provide a JSON response with this structure:
+
 ```json
 {
   "intent": "brief description of what user wants",

@@ -14,6 +14,7 @@ Your task is to analyze high-performing ad messages and generate new creative re
 ## Output Format
 
 Provide a JSON response with this structure:
+
 ```json
 {
   "success_patterns": [

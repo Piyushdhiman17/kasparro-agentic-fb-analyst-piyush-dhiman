@@ -6,7 +6,7 @@ llm:
   max_tokens: 2000
 
 data:
-  path: "dataset.csv"
+  path: "data/dataset.csv"
   sample_size: null # null for full dataset
 
 thresholds:

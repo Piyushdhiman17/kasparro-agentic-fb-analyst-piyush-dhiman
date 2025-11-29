@@ -22,6 +22,7 @@ Your task is to analyze the provided data context and generate hypotheses that e
 ## Output Format
 
 Provide a JSON response with this structure:
+
 ```json
 {
   "analysis_summary": "Brief overview of the data and key observations",
