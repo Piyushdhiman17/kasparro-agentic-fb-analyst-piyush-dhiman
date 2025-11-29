@@ -9,6 +9,7 @@ idna==3.11
 numpy==1.26.2
 ollama==0.1.6
 pandas==2.1.4
+pytest==8.4.2
 python-dateutil==2.8.2
 pytz==2025.2
 PyYAML==6.0.1
