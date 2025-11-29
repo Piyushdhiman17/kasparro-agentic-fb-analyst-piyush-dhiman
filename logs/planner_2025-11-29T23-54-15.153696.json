@@ -1,0 +1,35 @@
+{
+  "agent": "planner",
+  "timestamp": "2025-11-29T23:54:15.153696",
+  "duration_seconds": 13.905472,
+  "success": true,
+  "error": null,
+  "result": {
+    "intent": "Analyze: Analyze ROAS performance",
+    "analysis_scope": {
+      "metrics": [
+        "roas",
+        "ctr",
+        "spend"
+      ],
+      "time_period": "all",
+      "breakdowns": [
+        "campaign",
+        "date"
+      ],
+      "focus_areas": [
+        "performance_trends"
+      ]
+    },
+    "tasks": [
+      "Load Facebook Ads dataset",
+      "Compute summary statistics and trends",
+      "Identify performance patterns",
+      "Generate hypotheses about changes",
+      "Validate hypotheses with data",
+      "Create summary report"
+    ],
+    "requires_creative_generation": false,
+    "reasoning": "Fallback plan due to LLM error"
+  }
+}

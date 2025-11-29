@@ -49,27 +49,25 @@ def main():
         output_dir = Path(config['output']['reports_dir'])
         output_dir.mkdir(parents=True, exist_ok=True)
         
-        # save json results
-        json_path = output_dir / f"results_{results['metadata']['timestamp'].replace(':', '-')}.json"
-        with open(json_path, 'w') as f:
-            # convert non-serializable objects
-            json_safe_results = {
-                'query': results['query'],
-                'plan': results['plan'],
-                'insights': results['insights'],
-                'creatives': results['creatives'],
-                'metadata': results['metadata']
-            }
-            json.dump(json_safe_results, f, indent=2, default=str)
+        # save insights json
+        insights_path = output_dir / "insights.json"
+        with open(insights_path, 'w') as f:
+            json.dump(results['insights'], f, indent=2, default=str)
+        
+        # save creatives json
+        creatives_path = output_dir / "creatives.json"
+        with open(creatives_path, 'w') as f:
+            json.dump(results['creatives'], f, indent=2, default=str)
         
         # save markdown report
-        report_path = output_dir / f"report_{results['metadata']['timestamp'].replace(':', '-')}.md"
+        report_path = output_dir / "report.md"
         with open(report_path, 'w') as f:
             f.write(results['report'])
         
         print(f"\nResults saved to {output_dir}/")
-        print(f"   - JSON: {json_path.name}")
-        print(f"   - Report: {report_path.name}")
+        print(f"   - Report: report.md")
+        print(f"   - Insights: insights.json")
+        print(f"   - Creatives: creatives.json")
         
     except Exception as e:
         print(f"\nError: {str(e)}")

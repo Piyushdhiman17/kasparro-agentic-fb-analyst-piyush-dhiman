@@ -1,0 +1,449 @@
+{
+  "query": "Analyze ROAS performance",
+  "timestamp": "2025-11-29T23:54:15.153685",
+  "execution_time_seconds": 55.126662,
+  "agents_executed": [
+    "planner",
+    "data_agent",
+    "insight_agent",
+    "evaluator"
+  ],
+  "execution_log": [
+    {
+      "agent": "planner",
+      "timestamp": "2025-11-29T23:54:15.153696",
+      "duration_seconds": 13.905472,
+      "success": true,
+      "error": null,
+      "result": {
+        "intent": "Analyze: Analyze ROAS performance",
+        "analysis_scope": {
+          "metrics": [
+            "roas",
+            "ctr",
+            "spend"
+          ],
+          "time_period": "all",
+          "breakdowns": [
+            "campaign",
+            "date"
+          ],
+          "focus_areas": [
+            "performance_trends"
+          ]
+        },
+        "tasks": [
+          "Load Facebook Ads dataset",
+          "Compute summary statistics and trends",
+          "Identify performance patterns",
+          "Generate hypotheses about changes",
+          "Validate hypotheses with data",
+          "Create summary report"
+        ],
+        "requires_creative_generation": false,
+        "reasoning": "Fallback plan due to LLM error"
+      }
+    },
+    {
+      "agent": "data_agent",
+      "timestamp": "2025-11-29T23:54:29.060499",
+      "duration_seconds": 0.033816,
+      "success": true,
+      "error": null,
+      "result": {
+        "summary": {
+          "date_range": {
+            "start": "2025-01-01",
+            "end": "2025-01-05"
+          },
+          "total_campaigns": 3,
+          "total_records": 5,
+          "overall_metrics": {
+            "total_spend": 2159.13,
+            "total_revenue": 18917.82,
+            "total_impressions": 1575893,
+            "total_clicks": 28368,
+            "total_purchases": 656,
+            "overall_roas": 8.761779049895097,
+            "avg_ctr": 0.017480000000000002,
+            "avg_roas": 14.992
+          },
+          "breakdowns": {
+            "creative_types": [
+              "Image",
+              "Video",
+              "UGC"
+            ],
+            "audience_types": [
+              "Broad",
+              "Lookalike"
+            ],
+            "platforms": [
+              "Facebook",
+              "Instagram"
+            ],
+            "countries": [
+              "US",
+              "IN"
+            ]
+          }
+        },
+        "time_series": {
+          "roas": {
+            "2025-01-01": 2.37,
+            "2025-01-02": 11.11,
+            "2025-01-03": 6.95,
+            "2025-01-04": 3.01,
+            "2025-01-05": 51.52
+          },
+          "ctr": {
+            "2025-01-01": 0.0183,
+            "2025-01-02": 0.0197,
+            "2025-01-03": 0.0211,
+            "2025-01-04": 0.0125,
+            "2025-01-05": 0.0158
+          },
+          "spend": {
+            "2025-01-01": 640.09,
+            "2025-01-02": 373.75,
+            "2025-01-03": 703.79,
+            "2025-01-04": 441.5,
+            "2025-01-05": 0.0
+          }
+        },
+        "campaign_performance": {
+          "Men ComfortMax Launch": {
+            "total_spend": 1013.84,
+            "total_revenue": 5667.09,
+            "total_purchases": 174,
+            "total_impressions": 511791,
+            "total_clicks": 9742,
+            "avg_roas": 6.74,
+            "avg_ctr": 0.019,
+            "record_count": 2,
+            "creative_types": [
+              "Image",
+              "Video"
+            ],
+            "audience_types": [
+              "Broad"
+            ]
+          },
+          "Men  ComfortMax  Launch": {
+            "total_spend": 703.79,
+            "total_revenue": 11920.630000000001,
+            "total_purchases": 421,
+            "total_impressions": 870872,
+            "total_clicks": 16202,
+            "avg_roas": 29.235000000000003,
+            "avg_ctr": 0.01845,
+            "record_count": 2,
+            "creative_types": [
+              "UGC",
+              "Video"
+            ],
+            "audience_types": [
+              "Broad",
+              "Lookalike"
+            ]
+          },
+          "Men_ComfortMax_Launch": {
+            "total_spend": 441.5,
+            "total_revenue": 1330.1,
+            "total_purchases": 61,
+            "total_impressions": 193230,
+            "total_clicks": 2424,
+            "avg_roas": 3.01,
+            "avg_ctr": 0.0125,
+            "record_count": 1,
+            "creative_types": [
+              "Image"
+            ],
+            "audience_types": [
+              "Lookalike"
+            ]
+          }
+        },
+        "creative_performance": {
+          "Image": {
+            "total_spend": 1081.5900000000001,
+            "total_revenue": 2844.38,
+            "avg_roas": 2.69,
+            "avg_ctr": 0.0154,
+            "count": 2
+          },
+          "Video": {
+            "total_spend": 373.75,
+            "total_revenue": 11180.01,
+            "avg_roas": 31.315,
+            "avg_ctr": 0.017750000000000002,
+            "count": 2
+          },
+          "UGC": {
+            "total_spend": 703.79,
+            "total_revenue": 4893.43,
+            "avg_roas": 6.95,
+            "avg_ctr": 0.0211,
+            "count": 1
+          }
+        },
+        "audience_performance": {
+          "Broad": {
+            "total_spend": 1717.63,
+            "total_revenue": 10560.52,
+            "avg_roas": 6.81,
+            "avg_ctr": 0.0197,
+            "count": 3
+          },
+          "Lookalike": {
+            "total_spend": 441.5,
+            "total_revenue": 8357.3,
+            "avg_roas": 27.265,
+            "avg_ctr": 0.014150000000000001,
+            "count": 2
+          }
+        },
+        "anomalies": {
+          "metric": "roas",
+          "lower_bound": -9.139999999999999,
+          "upper_bound": 23.259999999999998,
+          "anomaly_count": 1,
+          "anomalies": [
+            {
+              "date": "2025-01-05",
+              "campaign_name": "Men  ComfortMax  Launch",
+              "roas": 51.52,
+              "ctr": 0.0158,
+              "spend": 0.0,
+              "revenue": 7027.2
+            }
+          ]
+        },
+        "dataset_shape": {
+          "rows": 5,
+          "columns": 16
+        }
+      }
+    },
+    {
+      "agent": "insight_agent",
+      "timestamp": "2025-11-29T23:54:29.095062",
+      "duration_seconds": 41.161221,
+      "success": true,
+      "error": null,
+      "result": {
+        "analysis_summary": "Basic analysis of Facebook Ads performance data",
+        "key_observations": [
+          "Data loaded successfully for analysis",
+          "Multiple campaigns with varying performance levels detected",
+          "Different creative types show varied effectiveness"
+        ],
+        "hypotheses": [
+          {
+            "id": "H1",
+            "hypothesis": "Video and UGC creative types may outperform static images in terms of engagement",
+            "category": "creative",
+            "supporting_evidence": "Different creative types show varied CTR and ROAS",
+            "testable": true,
+            "business_impact": "high",
+            "recommended_action": "Compare ROAS and CTR across creative types"
+          },
+          {
+            "id": "H2",
+            "hypothesis": "Retargeting audiences likely show higher conversion rates than broad audiences",
+            "category": "audience",
+            "supporting_evidence": "Audience segmentation affects purchase behavior",
+            "testable": true,
+            "business_impact": "high",
+            "recommended_action": "Analyze ROAS by audience type"
+          },
+          {
+            "id": "H3",
+            "hypothesis": "Campaigns with specific value propositions (discounts, guarantees) may have higher CTR",
+            "category": "creative",
+            "supporting_evidence": "Creative messages vary in their value proposition clarity",
+            "testable": true,
+            "business_impact": "medium",
+            "recommended_action": "Analyze CTR by message type"
+          },
+          {
+            "id": "H4",
+            "hypothesis": "Weekend performance may differ from weekday performance",
+            "category": "timing",
+            "supporting_evidence": "Time series data available for analysis",
+            "testable": true,
+            "business_impact": "medium",
+            "recommended_action": "Compare weekend vs weekday metrics"
+          }
+        ],
+        "data_gaps": [
+          "Frequency/reach data for ad fatigue analysis",
+          "A/B test assignment information",
+          "Landing page performance data"
+        ]
+      }
+    },
+    {
+      "agent": "evaluator",
+      "timestamp": "2025-11-29T23:55:10.257493",
+      "duration_seconds": 0.022207,
+      "success": true,
+      "error": null,
+      "result": {
+        "validated_hypotheses": [
+          {
+            "original_hypothesis": "Video and UGC creative types may outperform static images in terms of engagement",
+            "hypothesis_id": "H1",
+            "category": "creative",
+            "confidence": 0.7999999999999999,
+            "validation_method": "Creative type ANOVA comparison",
+            "quantitative_evidence": {
+              "Image": {
+                "avg_roas": 2.69,
+                "avg_ctr": 0.0154,
+                "count": 2
+              },
+              "Video": {
+                "avg_roas": 31.315,
+                "avg_ctr": 0.017750000000000002,
+                "count": 2
+              },
+              "UGC": {
+                "avg_roas": 6.95,
+                "avg_ctr": 0.0211,
+                "count": 1
+              }
+            },
+            "statistical_tests": {
+              "anova_f_statistic": 2.0066164121133765,
+              "p_value": 0.292309611662783,
+              "significant": "False"
+            },
+            "conclusion": "Best: Video (ROAS: 31.32), Worst: Image (ROAS: 2.69)",
+            "recommendation": "Consider increasing budget allocation to Video creative type"
+          },
+          {
+            "original_hypothesis": "Retargeting audiences likely show higher conversion rates than broad audiences",
+            "hypothesis_id": "H2",
+            "category": "audience",
+            "confidence": 0.5,
+            "validation_method": "Audience type ANOVA comparison",
+            "quantitative_evidence": {
+              "Broad": {
+                "avg_roas": 6.81,
+                "avg_ctr": 0.0197,
+                "count": 3
+              },
+              "Lookalike": {
+                "avg_roas": 27.265,
+                "avg_ctr": 0.014150000000000001,
+                "count": 2
+              }
+            },
+            "statistical_tests": {
+              "anova_f_statistic": 1.239894685134771,
+              "p_value": 0.3466773839473774,
+              "significant": "False"
+            },
+            "conclusion": "Best performing audience: Lookalike (ROAS: 27.27)",
+            "recommendation": "Focus more budget on Lookalike audience segments"
+          },
+          {
+            "original_hypothesis": "Campaigns with specific value propositions (discounts, guarantees) may have higher CTR",
+            "hypothesis_id": "H3",
+            "category": "creative",
+            "confidence": 0.6,
+            "validation_method": "Creative type ANOVA comparison",
+            "quantitative_evidence": {
+              "Image": {
+                "avg_roas": 2.69,
+                "avg_ctr": 0.0154,
+                "count": 2
+              },
+              "Video": {
+                "avg_roas": 31.315,
+                "avg_ctr": 0.017750000000000002,
+                "count": 2
+              },
+              "UGC": {
+                "avg_roas": 6.95,
+                "avg_ctr": 0.0211,
+                "count": 1
+              }
+            },
+            "statistical_tests": {
+              "anova_f_statistic": 2.0066164121133765,
+              "p_value": 0.292309611662783,
+              "significant": "False"
+            },
+            "conclusion": "Best: Video (ROAS: 31.32), Worst: Image (ROAS: 2.69)",
+            "recommendation": "Consider increasing budget allocation to Video creative type"
+          },
+          {
+            "original_hypothesis": "Weekend performance may differ from weekday performance",
+            "hypothesis_id": "H4",
+            "category": "timing",
+            "confidence": 0.6,
+            "validation_method": "Weekend vs Weekday T-test comparison",
+            "quantitative_evidence": {
+              "weekend_avg_roas": 27.265,
+              "weekday_avg_roas": 6.81,
+              "weekend_avg_ctr": 0.014150000000000001,
+              "weekday_avg_ctr": 0.0197,
+              "daily_roas": {
+                "Wed": 2.37,
+                "Thu": 11.11,
+                "Fri": 6.95,
+                "Sat": 3.01,
+                "Sun": 51.52
+              }
+            },
+            "statistical_tests": {
+              "t_statistic": 1.113505583791465,
+              "p_value": 0.3466773839473774,
+              "significant": "False"
+            },
+            "conclusion": "Weekend ROAS: 27.27 vs Weekday ROAS: 6.81. Best day: Sun (ROAS: 51.52)",
+            "recommendation": "Consider adjusting bid strategies for Sun"
+          }
+        ],
+        "validation_summary": "1 high, 3 medium, 0 low confidence",
+        "total_validated": 4,
+        "high_confidence_count": 1,
+        "medium_confidence_count": 3,
+        "low_confidence_count": 0
+      }
+    }
+  ],
+  "plan": {
+    "intent": "Analyze: Analyze ROAS performance",
+    "analysis_scope": {
+      "metrics": [
+        "roas",
+        "ctr",
+        "spend"
+      ],
+      "time_period": "all",
+      "breakdowns": [
+        "campaign",
+        "date"
+      ],
+      "focus_areas": [
+        "performance_trends"
+      ]
+    },
+    "tasks": [
+      "Load Facebook Ads dataset",
+      "Compute summary statistics and trends",
+      "Identify performance patterns",
+      "Generate hypotheses about changes",
+      "Validate hypotheses with data",
+      "Create summary report"
+    ],
+    "requires_creative_generation": false,
+    "reasoning": "Fallback plan due to LLM error"
+  },
+  "insights_count": 4,
+  "validated_count": 4,
+  "creatives_generated": 0
+}

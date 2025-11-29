@@ -1,73 +1,11 @@
 {
-  "query": "Analyze ROAS performance",
-  "plan": {
-    "intent": "Analyze: Analyze ROAS performance",
-    "analysis_scope": {
-      "metrics": [
-        "roas",
-        "ctr",
-        "spend"
-      ],
-      "time_period": "all",
-      "breakdowns": [
-        "campaign",
-        "date"
-      ],
-      "focus_areas": [
-        "performance_trends"
-      ]
-    },
-    "tasks": [
-      "Load Facebook Ads dataset",
-      "Compute summary statistics and trends",
-      "Identify performance patterns",
-      "Generate hypotheses about changes",
-      "Validate hypotheses with data",
-      "Create summary report"
-    ],
-    "requires_creative_generation": false,
-    "reasoning": "Fallback plan due to LLM error"
-  },
-  "insights": {
-    "hypotheses": [
-      {
-        "id": "H1",
-        "hypothesis": "Video and UGC creative types may outperform static images in terms of engagement",
-        "category": "creative",
-        "supporting_evidence": "Different creative types show varied CTR and ROAS",
-        "testable": true,
-        "business_impact": "high",
-        "recommended_action": "Compare ROAS and CTR across creative types"
-      },
-      {
-        "id": "H2",
-        "hypothesis": "Retargeting audiences likely show higher conversion rates than broad audiences",
-        "category": "audience",
-        "supporting_evidence": "Audience segmentation affects purchase behavior",
-        "testable": true,
-        "business_impact": "high",
-        "recommended_action": "Analyze ROAS by audience type"
-      },
-      {
-        "id": "H3",
-        "hypothesis": "Campaigns with specific value propositions (discounts, guarantees) may have higher CTR",
-        "category": "creative",
-        "supporting_evidence": "Creative messages vary in their value proposition clarity",
-        "testable": true,
-        "business_impact": "medium",
-        "recommended_action": "Analyze CTR by message type"
-      },
-      {
-        "id": "H4",
-        "hypothesis": "Weekend performance may differ from weekday performance",
-        "category": "timing",
-        "supporting_evidence": "Time series data available for analysis",
-        "testable": true,
-        "business_impact": "medium",
-        "recommended_action": "Compare weekend vs weekday metrics"
-      }
-    ],
-    "validated": [
+  "agent": "evaluator",
+  "timestamp": "2025-11-29T23:55:10.257493",
+  "duration_seconds": 0.022207,
+  "success": true,
+  "error": null,
+  "result": {
+    "validated_hypotheses": [
       {
         "original_hypothesis": "Video and UGC creative types may outperform static images in terms of engagement",
         "hypothesis_id": "H1",
@@ -184,16 +122,10 @@
         "recommendation": "Consider adjusting bid strategies for Sun"
       }
     ],
-    "summary": "Basic analysis of Facebook Ads performance data",
-    "key_observations": [
-      "Data loaded successfully for analysis",
-      "Multiple campaigns with varying performance levels detected",
-      "Different creative types show varied effectiveness"
-    ]
-  },
-  "creatives": null,
-  "metadata": {
-    "execution_time_seconds": 57.050783,
-    "timestamp": "2025-11-29T23:41:53.988002"
+    "validation_summary": "1 high, 3 medium, 0 low confidence",
+    "total_validated": 4,
+    "high_confidence_count": 1,
+    "medium_confidence_count": 3,
+    "low_confidence_count": 0
   }
 }
