@@ -17,6 +17,14 @@ class EvaluatorAgent:
         self.config = config
         self.confidence_threshold = config['thresholds'].get('confidence_threshold', 0.6)
         self.df = None
+        self.prompt_template = self._load_prompt()
+    
+    def _load_prompt(self) -> str:
+        """load evaluator prompt template from markdown file"""
+        prompt_path = Path("prompts/evaluator.md")
+        if prompt_path.exists():
+            return prompt_path.read_text()
+        raise FileNotFoundError(f"Prompt file not found: {prompt_path}")
     
     def validate(self, hypotheses: List[Dict[str, Any]]) -> Dict[str, Any]:
         """
@@ -342,11 +350,12 @@ class EvaluatorAgent:
         # use llm to help interpret and validate
         summary = self.loader.get_summary_stats()
         
-        prompt = f"""Evaluate this hypothesis based on the data summary:
+        prompt = f"""{self.prompt_template}
 
-Hypothesis: {hypothesis}
+## Hypothesis to Evaluate
+{hypothesis}
 
-Data Summary:
+## Data Summary
 - Total Spend: ${summary['overall_metrics']['total_spend']:.2f}
 - Total Revenue: ${summary['overall_metrics']['total_revenue']:.2f}
 - Overall ROAS: {summary['overall_metrics']['overall_roas']:.2f}
@@ -354,13 +363,7 @@ Data Summary:
 - Creative Types: {', '.join(summary['breakdowns']['creative_types'])}
 - Audience Types: {', '.join(summary['breakdowns']['audience_types'])}
 
-Respond in JSON format:
-{{
-  "confidence": 0.0 to 1.0,
-  "reasoning": "why this confidence level",
-  "evidence_summary": "key supporting or contradicting evidence",
-  "recommendation": "action to take"
-}}"""
+Respond in JSON format."""
         
         try:
             result = self.llm.generate_json(prompt=prompt, temperature=0.3)

@@ -15,6 +15,14 @@ class CreativeGeneratorAgent:
         self.config = config
         self.low_ctr_threshold = config['thresholds']['low_ctr']
         self.df = None  # will be loaded lazily
+        self.prompt_template = self._load_prompt()
+    
+    def _load_prompt(self) -> str:
+        """load creative generator prompt template from markdown file"""
+        prompt_path = Path("prompts/creative.md")
+        if prompt_path.exists():
+            return prompt_path.read_text()
+        raise FileNotFoundError(f"Prompt file not found: {prompt_path}")
     
     def generate(self, plan: Dict[str, Any]) -> Dict[str, Any]:
         """
@@ -78,46 +86,13 @@ class CreativeGeneratorAgent:
         high_perf_sample = high_perf_messages[:5]  # sample to avoid token limits
         low_perf_sample = low_perf_messages[:5]
         
-        prompt = f"""You are a creative strategist analyzing Facebook ad performance.
+        prompt = f"""{self.prompt_template}
 
 ## High-Performing Ad Messages (CTR > {self.low_ctr_threshold * 1.5:.4f})
 {chr(10).join(f"{i+1}. {msg}" for i, msg in enumerate(high_perf_sample))}
 
 ## Low-Performing Ad Messages (CTR < {self.low_ctr_threshold:.4f})
 {chr(10).join(f"{i+1}. {msg}" for i, msg in enumerate(low_perf_sample))}
-
-## Task
-Analyze the high-performing messages and identify successful patterns. Then generate NEW creative recommendations for the low-performing ads.
-
-## Success Patterns to Identify
-- Value propositions that resonate (comfort, quality, guarantee)
-- Effective calls-to-action (limited offer, back in stock)
-- Emotional triggers (confidence, lifestyle benefits)
-- Specific product features (breathable, cooling mesh, organic cotton)
-
-## Output Format
-Provide a JSON response with this structure:
-{{
-  "success_patterns": [
-    "Pattern 1: Specific benefit highlighted",
-    "Pattern 2: Urgency or scarcity mentioned"
-  ],
-  "recommendations": [
-    {{
-      "original_message": "the low-performing message",
-      "current_ctr": 0.0125,
-      "new_creatives": [
-        {{
-          "headline": "New attention-grabbing headline",
-          "body": "Compelling body copy with specific benefit",
-          "cta": "Clear call to action",
-          "reasoning": "Why this creative should perform better",
-          "pattern_applied": "Which success pattern was used"
-        }}
-      ]
-    }}
-  ]
-}}
 
 Generate 2-3 creative variations for each low-performing message. Be specific and actionable.
 """
