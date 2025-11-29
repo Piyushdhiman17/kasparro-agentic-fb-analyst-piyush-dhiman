@@ -1,0 +1,22 @@
+# config/config.yaml
+llm:
+  model: "qwen3:4b"
+  base_url: "http://localhost:11434"
+  temperature: 0.7
+  max_tokens: 2000
+
+data:
+  path: "data/dataset.csv"
+  sample_size: null # null for full dataset
+
+thresholds:
+  low_ctr: 0.015
+  low_roas: 3.0
+  high_spend: 500
+  confidence_threshold: 0.6
+
+output:
+  logs_dir: "logs"
+  reports_dir: "reports"
+
+random_seed: 42
