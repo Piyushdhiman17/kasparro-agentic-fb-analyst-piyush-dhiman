@@ -1,0 +1,181 @@
+{
+  "agent": "data_agent",
+  "timestamp": "2025-11-29T23:45:20.569604",
+  "duration_seconds": 0.029034,
+  "success": true,
+  "error": null,
+  "result": {
+    "summary": {
+      "date_range": {
+        "start": "2025-01-01",
+        "end": "2025-01-05"
+      },
+      "total_campaigns": 3,
+      "total_records": 5,
+      "overall_metrics": {
+        "total_spend": 2159.13,
+        "total_revenue": 18917.82,
+        "total_impressions": 1575893,
+        "total_clicks": 28368,
+        "total_purchases": 656,
+        "overall_roas": 8.761779049895097,
+        "avg_ctr": 0.017480000000000002,
+        "avg_roas": 14.992
+      },
+      "breakdowns": {
+        "creative_types": [
+          "Image",
+          "Video",
+          "UGC"
+        ],
+        "audience_types": [
+          "Broad",
+          "Lookalike"
+        ],
+        "platforms": [
+          "Facebook",
+          "Instagram"
+        ],
+        "countries": [
+          "US",
+          "IN"
+        ]
+      }
+    },
+    "time_series": {
+      "roas": {
+        "2025-01-01": 2.37,
+        "2025-01-02": 11.11,
+        "2025-01-03": 6.95,
+        "2025-01-04": 3.01,
+        "2025-01-05": 51.52
+      },
+      "ctr": {
+        "2025-01-01": 0.0183,
+        "2025-01-02": 0.0197,
+        "2025-01-03": 0.0211,
+        "2025-01-04": 0.0125,
+        "2025-01-05": 0.0158
+      },
+      "spend": {
+        "2025-01-01": 640.09,
+        "2025-01-02": 373.75,
+        "2025-01-03": 703.79,
+        "2025-01-04": 441.5,
+        "2025-01-05": 0.0
+      }
+    },
+    "campaign_performance": {
+      "Men ComfortMax Launch": {
+        "total_spend": 1013.84,
+        "total_revenue": 5667.09,
+        "total_purchases": 174,
+        "total_impressions": 511791,
+        "total_clicks": 9742,
+        "avg_roas": 6.74,
+        "avg_ctr": 0.019,
+        "record_count": 2,
+        "creative_types": [
+          "Image",
+          "Video"
+        ],
+        "audience_types": [
+          "Broad"
+        ]
+      },
+      "Men  ComfortMax  Launch": {
+        "total_spend": 703.79,
+        "total_revenue": 11920.630000000001,
+        "total_purchases": 421,
+        "total_impressions": 870872,
+        "total_clicks": 16202,
+        "avg_roas": 29.235000000000003,
+        "avg_ctr": 0.01845,
+        "record_count": 2,
+        "creative_types": [
+          "UGC",
+          "Video"
+        ],
+        "audience_types": [
+          "Broad",
+          "Lookalike"
+        ]
+      },
+      "Men_ComfortMax_Launch": {
+        "total_spend": 441.5,
+        "total_revenue": 1330.1,
+        "total_purchases": 61,
+        "total_impressions": 193230,
+        "total_clicks": 2424,
+        "avg_roas": 3.01,
+        "avg_ctr": 0.0125,
+        "record_count": 1,
+        "creative_types": [
+          "Image"
+        ],
+        "audience_types": [
+          "Lookalike"
+        ]
+      }
+    },
+    "creative_performance": {
+      "Image": {
+        "total_spend": 1081.5900000000001,
+        "total_revenue": 2844.38,
+        "avg_roas": 2.69,
+        "avg_ctr": 0.0154,
+        "count": 2
+      },
+      "Video": {
+        "total_spend": 373.75,
+        "total_revenue": 11180.01,
+        "avg_roas": 31.315,
+        "avg_ctr": 0.017750000000000002,
+        "count": 2
+      },
+      "UGC": {
+        "total_spend": 703.79,
+        "total_revenue": 4893.43,
+        "avg_roas": 6.95,
+        "avg_ctr": 0.0211,
+        "count": 1
+      }
+    },
+    "audience_performance": {
+      "Broad": {
+        "total_spend": 1717.63,
+        "total_revenue": 10560.52,
+        "avg_roas": 6.81,
+        "avg_ctr": 0.0197,
+        "count": 3
+      },
+      "Lookalike": {
+        "total_spend": 441.5,
+        "total_revenue": 8357.3,
+        "avg_roas": 27.265,
+        "avg_ctr": 0.014150000000000001,
+        "count": 2
+      }
+    },
+    "anomalies": {
+      "metric": "roas",
+      "lower_bound": -9.139999999999999,
+      "upper_bound": 23.259999999999998,
+      "anomaly_count": 1,
+      "anomalies": [
+        {
+          "date": "2025-01-05",
+          "campaign_name": "Men  ComfortMax  Launch",
+          "roas": 51.52,
+          "ctr": 0.0158,
+          "spend": 0.0,
+          "revenue": 7027.2
+        }
+      ]
+    },
+    "dataset_shape": {
+      "rows": 5,
+      "columns": 16
+    }
+  }
+}

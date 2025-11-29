@@ -1,0 +1,131 @@
+{
+  "agent": "evaluator",
+  "timestamp": "2025-11-29T23:46:16.588233",
+  "duration_seconds": 0.044932,
+  "success": true,
+  "error": null,
+  "result": {
+    "validated_hypotheses": [
+      {
+        "original_hypothesis": "Video and UGC creative types may outperform static images in terms of engagement",
+        "hypothesis_id": "H1",
+        "category": "creative",
+        "confidence": 0.7999999999999999,
+        "validation_method": "Creative type ANOVA comparison",
+        "quantitative_evidence": {
+          "Image": {
+            "avg_roas": 2.69,
+            "avg_ctr": 0.0154,
+            "count": 2
+          },
+          "Video": {
+            "avg_roas": 31.315,
+            "avg_ctr": 0.017750000000000002,
+            "count": 2
+          },
+          "UGC": {
+            "avg_roas": 6.95,
+            "avg_ctr": 0.0211,
+            "count": 1
+          }
+        },
+        "statistical_tests": {
+          "anova_f_statistic": 2.0066164121133765,
+          "p_value": 0.292309611662783,
+          "significant": "False"
+        },
+        "conclusion": "Best: Video (ROAS: 31.32), Worst: Image (ROAS: 2.69)",
+        "recommendation": "Consider increasing budget allocation to Video creative type"
+      },
+      {
+        "original_hypothesis": "Retargeting audiences likely show higher conversion rates than broad audiences",
+        "hypothesis_id": "H2",
+        "category": "audience",
+        "confidence": 0.5,
+        "validation_method": "Audience type ANOVA comparison",
+        "quantitative_evidence": {
+          "Broad": {
+            "avg_roas": 6.81,
+            "avg_ctr": 0.0197,
+            "count": 3
+          },
+          "Lookalike": {
+            "avg_roas": 27.265,
+            "avg_ctr": 0.014150000000000001,
+            "count": 2
+          }
+        },
+        "statistical_tests": {
+          "anova_f_statistic": 1.239894685134771,
+          "p_value": 0.3466773839473774,
+          "significant": "False"
+        },
+        "conclusion": "Best performing audience: Lookalike (ROAS: 27.27)",
+        "recommendation": "Focus more budget on Lookalike audience segments"
+      },
+      {
+        "original_hypothesis": "Campaigns with specific value propositions (discounts, guarantees) may have higher CTR",
+        "hypothesis_id": "H3",
+        "category": "creative",
+        "confidence": 0.6,
+        "validation_method": "Creative type ANOVA comparison",
+        "quantitative_evidence": {
+          "Image": {
+            "avg_roas": 2.69,
+            "avg_ctr": 0.0154,
+            "count": 2
+          },
+          "Video": {
+            "avg_roas": 31.315,
+            "avg_ctr": 0.017750000000000002,
+            "count": 2
+          },
+          "UGC": {
+            "avg_roas": 6.95,
+            "avg_ctr": 0.0211,
+            "count": 1
+          }
+        },
+        "statistical_tests": {
+          "anova_f_statistic": 2.0066164121133765,
+          "p_value": 0.292309611662783,
+          "significant": "False"
+        },
+        "conclusion": "Best: Video (ROAS: 31.32), Worst: Image (ROAS: 2.69)",
+        "recommendation": "Consider increasing budget allocation to Video creative type"
+      },
+      {
+        "original_hypothesis": "Weekend performance may differ from weekday performance",
+        "hypothesis_id": "H4",
+        "category": "timing",
+        "confidence": 0.6,
+        "validation_method": "Weekend vs Weekday T-test comparison",
+        "quantitative_evidence": {
+          "weekend_avg_roas": 27.265,
+          "weekday_avg_roas": 6.81,
+          "weekend_avg_ctr": 0.014150000000000001,
+          "weekday_avg_ctr": 0.0197,
+          "daily_roas": {
+            "Wed": 2.37,
+            "Thu": 11.11,
+            "Fri": 6.95,
+            "Sat": 3.01,
+            "Sun": 51.52
+          }
+        },
+        "statistical_tests": {
+          "t_statistic": 1.113505583791465,
+          "p_value": 0.3466773839473774,
+          "significant": "False"
+        },
+        "conclusion": "Weekend ROAS: 27.27 vs Weekday ROAS: 6.81. Best day: Sun (ROAS: 51.52)",
+        "recommendation": "Consider adjusting bid strategies for Sun"
+      }
+    ],
+    "validation_summary": "1 high, 3 medium, 0 low confidence",
+    "total_validated": 4,
+    "high_confidence_count": 1,
+    "medium_confidence_count": 3,
+    "low_confidence_count": 0
+  }
+}

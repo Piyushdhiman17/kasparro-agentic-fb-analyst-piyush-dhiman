@@ -3,6 +3,7 @@ agent orchestrator - coordinates multi-agent workflow
 """
 from typing import Dict, Any
 from datetime import datetime
+from pathlib import Path
 import json
 
 from src.utils.llm_client import OllamaClient
@@ -41,6 +42,10 @@ class AgentOrchestrator:
         
         # execution log
         self.execution_log = []
+        
+        # logs directory
+        self.logs_dir = Path(config['output'].get('logs_dir', 'logs'))
+        self.logs_dir.mkdir(parents=True, exist_ok=True)
         
     def run(self, user_query: str) -> Dict[str, Any]:
         """
@@ -110,7 +115,7 @@ class AgentOrchestrator:
         
         print(f"\nTotal execution time: {duration:.2f}s")
         
-        return {
+        results = {
             "query": user_query,
             "plan": plan,
             "insights": {
@@ -127,6 +132,13 @@ class AgentOrchestrator:
                 "timestamp": start_time.isoformat()
             }
         }
+        
+        # save execution summary log
+        log_path = self._save_execution_summary(results)
+        if log_path:
+            print(f"Logs saved to {self.logs_dir}/")
+        
+        return results
     
     def _execute_with_logging(self, agent_name: str, func) -> Any:
         """execute agent function and log the execution"""
@@ -150,13 +162,57 @@ class AgentOrchestrator:
             "timestamp": start_time.isoformat(),
             "duration_seconds": duration,
             "success": success,
-            "error": error
+            "error": error,
+            "result": result
         }
         
         self.execution_log.append(log_entry)
         
+        # save individual agent log to json file
+        self._save_agent_log(agent_name, log_entry)
+        
         if not success:
             raise Exception(f"{agent_name} failed: {error}")
+        
+        return result
+    
+    def _save_agent_log(self, agent_name: str, log_entry: Dict[str, Any]) -> None:
+        """save individual agent execution log to json file"""
+        timestamp = log_entry['timestamp'].replace(':', '-')
+        log_filename = f"{agent_name}_{timestamp}.json"
+        log_path = self.logs_dir / log_filename
+        
+        try:
+            with open(log_path, 'w') as f:
+                json.dump(log_entry, f, indent=2, default=str)
+        except Exception as e:
+            print(f"   Warning: Failed to save log for {agent_name}: {e}")
+    
+    def _save_execution_summary(self, results: Dict[str, Any]) -> str:
+        """save complete execution summary log"""
+        timestamp = results['metadata']['timestamp'].replace(':', '-')
+        summary_filename = f"execution_summary_{timestamp}.json"
+        summary_path = self.logs_dir / summary_filename
+        
+        summary = {
+            "query": results['query'],
+            "timestamp": results['metadata']['timestamp'],
+            "execution_time_seconds": results['metadata']['execution_time_seconds'],
+            "agents_executed": [log['agent'] for log in self.execution_log],
+            "execution_log": self.execution_log,
+            "plan": results['plan'],
+            "insights_count": len(results['insights'].get('hypotheses', [])),
+            "validated_count": len(results['insights'].get('validated', [])),
+            "creatives_generated": len(results['creatives'].get('recommendations', [])) if results['creatives'] else 0
+        }
+        
+        try:
+            with open(summary_path, 'w') as f:
+                json.dump(summary, f, indent=2, default=str)
+            return str(summary_path)
+        except Exception as e:
+            print(f"   Warning: Failed to save execution summary: {e}")
+            return None
         
         return result
     
